@@ -1,7 +1,7 @@
 # virtual environments in python (venv)
 
 ## what are they?
-- a venv is a self-contained directory in which you can choose the Python version and packages for a specific project.
+- a venv is a self-contained directory in which you can choose the python version and packages for a specific project.
 
 ## why use them?
 - avoid breaking projects because of version conflicts.
@@ -25,7 +25,7 @@ source [name]/bin/activate
 deactivate
 ```
 
-## (optional) Save and reuse dependencies
+## (optional) save and reuse dependencies
 ```bash
 pip freeze > requirements.txt    # save installed packages
 pip install -r requirements.txt  # recreate environment later
