@@ -1,7 +1,6 @@
 from openai import OpenAI
 import os
 from pydantic import BaseModel
-import json
 
 client = OpenAI(
     api_key=os.getenv("GROQ_API_KEY"),
@@ -33,7 +32,7 @@ response = client.chat.completions.create(
     response_format={"type": "json_object"},
 )
 raw_json= response.choices[0].message.content
-result = ResponseOutput.model_validate_json(raw_json)
+result = ResponseOutput.model_validate_json(raw_json) # type: ignore
 print(f"Function Name: {result.funcName}")
 print(f"\nCode:\n{result.code}")
 print(f"\nExplanation: {result.exampleUsage}")
