@@ -10,7 +10,7 @@ while True:
         break
     stream = client.responses.create(
         model="llama-3.3-70b-versatile",
-        instructions="ONLY answer Python-related questions.",
+        instructions="ONLY answer AI-related questions",
         input=f"{userInput}",
         stream=True,
     )
