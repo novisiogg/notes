@@ -1,7 +1,7 @@
 # classe
 
 class SecretKey:
-    def __init__(self, owner, value): 
+    def __init__(self, owner, value):  # type: ignore
         # This just saves the data when you create the object
         self.owner = owner
         self.value = value
