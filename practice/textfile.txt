@@ -1,0 +1,5 @@
+--Queue--
+run script.py
+--Processed--
+open calculator
+ask What is Python

@@ -50,7 +50,7 @@ class Agent():
                     self.isRunning = False
                 else:
                     self.processCommand(userInput)  
-            except KeyboardInterrupt as keyError:
+            except KeyboardInterrupt:
                 print(f"Agent interrupted. Goodbye.")
                 self.isRunning = False
                 

@@ -110,7 +110,40 @@ def divide(self, args):
 
 ---
 
-## Final Phase 1 Agent (phase1_4.py)
+# Phase 2.1 — File I/O + TaskQueue (COMPLETE)
+
+**WHY:** The agent needs to save/load data between sessions. Without this, everything is lost on restart — like a goldfish.
+
+**Key concepts:**
+- `with open("file.txt", "w") as f` — open file in write mode, auto-closes when done
+- `with open("file.txt", "r") as f` — open file in read mode
+- `f.write(string)` — write text to file (strings only, not lists)
+- `f.read()` — read entire file as one string
+- `.split()` — cut a string into a list at a separator
+- Data serialization: choose a format, save in that format, load by splitting at the same format
+
+**Exercise: TaskQueue** — a command pipeline for the agent
+- `addTask` — queue up tasks (first-in, first-out)
+- `processNext` — pop the first task, identify type ("open ", "run ", "ask "), "execute" it
+- `showQueue` / `showProcessed` — numbered list display with `enumerate()`
+- `saveQueue` — write queue state to file (name → pending tasks → `---` separator → processed tasks)
+- `loadQueue` — read file back, split at separator, reconstruct both lists, handle `FileNotFoundError`
+- `run()` — main loop routing: add, next, show, log, save, load, quit
+
+**Key bugs fixed:**
+1. `f.write(list)` crashes — must loop and write each item as string + `"\n"`
+2. `startswith()` without argument — needs the actual string: `.startswith("open ")`
+3. Loading file puts header junk and empty strings into lists — use slicing `[1:-1]` to strip them
+4. `pop(firstItem)` wrong — `pop()` needs an index number: `pop(0)`
+5. `enumerate(task, i)` — wrong order, it's `for i, task in enumerate(list, 1)`
+6. `"ask "[5:]` — "ask " is 4 chars, not 5 → `[4:]`
+7. `__init__` had unused parameters `queueList, processedList` → removed them
+
+**Agent connection:** This is the agent's command pipeline. Real agents (AutoGPT, LangChain) queue multiple tasks and process them sequentially. Save/load is how the agent remembers between sessions — conversation history, learned patterns, preferences.
+
+---
+
+## Final Phase 1 Agent (phase1_4.py reference)
 
 Complete working agent with:
 - Class-based architecture (`Agent`)
@@ -122,5 +155,5 @@ Complete working agent with:
 
 ## Roadmap Status
 - Phase 1 (Python Foundations): DONE
-- Next: Phase 2 — System Control (file I/O, OS, subprocess, automation)
-- Notes saved to: C:\Users\vwu\Desktop\notes\claude\notes.md
+- Phase 2.1 (File I/O - TaskQueue): DONE
+- Next: Phase 2.2 — System Control (`os` module, `subprocess`, directory navigation)

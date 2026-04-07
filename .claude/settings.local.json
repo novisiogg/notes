@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/vwu/**)",
+      "Read(//c/Users/vwu/.claude/**)",
+      "Skill(update-config)",
+      "Bash(mv /c/Users/vwu/Desktop/notes/docs/status.md /c/Users/vwu/Desktop/notes/.claude/)",
+      "Bash(mv /c/Users/vwu/Desktop/notes/status.md /c/Users/vwu/Desktop/notes/.claude/status.md)",
+      "Bash(mv /c/Users/vwu/Desktop/notes/project-brief.md /c/Users/vwu/Desktop/notes/.claude/project-brief.md)",
+      "Bash(rm /c/Users/vwu/Desktop/notes/.claude/commands/notes.md)",
+      "Bash(rm /c/Users/vwu/Desktop/notes/.claude/commands/context.md)"
+    ]
+  }
+}
