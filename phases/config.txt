@@ -1,0 +1,1 @@
+{"name": "novisio", "audio": {"language": "spanish", "text_to_speech": "enabled"}, "model": "llama3", "auto_save": true}
