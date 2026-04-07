@@ -156,4 +156,39 @@ Complete working agent with:
 ## Roadmap Status
 - Phase 1 (Python Foundations): DONE
 - Phase 2.1 (File I/O - TaskQueue): DONE
-- Next: Phase 2.2 — System Control (`os` module, `subprocess`, directory navigation)
+- Next: Phase 2.3 — JSON Serialization + Configuration Files
+
+---
+
+# Phase 2.2 — System Control (`os` + `subprocess`) — COMPLETE
+
+**WHY:** The agent needs to *act* on the computer — create folders, navigate, run commands, launch apps. Without this, it can only talk.
+
+**Key concepts:**
+- `os` module — talk to the OS: navigate directories, list files, create dirs
+  - `os.makedirs(path)` — create nested directories
+  - `os.listdir()` — lists items in current directory (think: `ls`/`dir`)
+  - `os.getcwd()` — get current working directory (think: `pwd`)
+  - `os.chdir(path)` — change directory (think: `cd`)
+  - `os.path.abspath(path)` — resolves relative paths to absolute paths
+  - `os.path.isdir(path)` — checks if a path is an existing directory
+- `subprocess.Popen` — "start and forget" (launch apps that run in background)
+- `subprocess.run(capture_output=True, text=True)` — "run and wait" (get command output)
+- `shell=True` -- lets the OS shell interpret the command (needed for `echo`, `dir`, app names)
+- Nested `dict` for data organization — command metadata (description, aliases, syntax)
+
+**Help system design:** Single method, optional parameter. `help` alone → list all commands. `help <cmd>` → show that command's metadata from the `commands` dict. Extensible pattern.
+
+**Key bugs fixed:**
+1. `subprocess.run` vs `Popen` swapped — `start` used blocking `run`, `run` used non-blocking `Popen`. Swapped them.
+2. `Popen` returns an object, result has `.stdout` — wrong, `Popen` doesn't capture output like `run` does
+3. `find("")` instead of `find(" ")` — empty string always returns `0`
+4. `os.getcwd(dir)` — `getcwd` takes no arguments. Used `os.path.abspath(dir)` + `os.getcwd()` comparison instead
+5. `help` method defined inside `run()` — not a class method, couldn't access `self.commands` properly
+6. `userinput` vs `userInput` — Python is case-sensitive
+7. `if content != ""` missing colon
+8. `command_name` vs `commandName` — parameter name mismatch
+9. `run()` body not indented — all routing code was at class level
+10. `os.chdir()` could also raise `NotADirectoryError` — added try/except for `FileNotFoundError`
+
+**Agent connection:** This is the foundation of agent autonomy. Real agents (AutoGPT, Open Interpreter) reason about what the user wants, translate it into OS-level actions (create folders, run scripts, launch tools), and report back. The `os` module gives the agent fingers to navigate. `subprocess` gives it fingers to act.
