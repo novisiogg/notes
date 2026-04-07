@@ -9,7 +9,8 @@
       "Bash(mv /c/Users/vwu/Desktop/notes/project-brief.md /c/Users/vwu/Desktop/notes/.claude/project-brief.md)",
       "Bash(rm /c/Users/vwu/Desktop/notes/.claude/commands/notes.md)",
       "Bash(rm /c/Users/vwu/Desktop/notes/.claude/commands/context.md)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(rm:*)"
     ]
   }
 }

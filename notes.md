@@ -192,3 +192,45 @@ Complete working agent with:
 10. `os.chdir()` could also raise `NotADirectoryError` — added try/except for `FileNotFoundError`
 
 **Agent connection:** This is the foundation of agent autonomy. Real agents (AutoGPT, Open Interpreter) reason about what the user wants, translate it into OS-level actions (create folders, run scripts, launch tools), and report back. The `os` module gives the agent fingers to navigate. `subprocess` gives it fingers to act.
+
+---
+
+# Phase 2.3 — JSON Serialization + Configuration Files (COMPLETE)
+
+**WHY:** The agent needs a clean way to persist and restore settings (name, mode, voice preferences, workspace). Phase 2.1 used manual `---` separators and slicing — JSON replaces that with structured, type-preserving one-line calls.
+
+**Key concepts:**
+- `json.dump(obj, file)` — write a Python dict to a file as JSON
+- `json.load(file)` — read a JSON file and return a Python dict (types preserved: `true` → `True`, numbers stay numbers)
+- `json.dumps(dict)` — dict → string; `json.loads(string)` — string → dict
+- Dict `.copy()` — creates a separate copy so mutation of one doesn't affect the other
+- Dot-notation keys (`"audio.language"`) → `split(".")` → navigate nested dicts
+- `dict.get(key, default)` — safe access with fallback, vs `dict[key]` which crashes on missing keys
+
+**Exercise: ConfigManager** — persistent agent settings
+- Defaults dict stored internally, copied to active config on init
+- `set_key` — handles both top-level and dot-notation nested keys
+- `show_config`, `save_config`, `load_config`, `reset_config`
+- Help system reusing the `commands` dict pattern from Phase 2.2
+- Clean `run()` loop routing all commands
+
+**Key bugs fixed:**
+1. `json.load(dict)` wrong — `json.load` reads from file objects, not dicts
+2. `f.write(dict)` crashes — must use `json.dump(dict, f)`
+3. `self.config = self.default_config` — no `.copy()` means shared reference, reset breaks
+4. Dot-notation parsing in `run()` instead of `set_key()` — user was extracting value from the wrong place
+5. `items[dot_pos: + 1:]` — malformed slice, returned empty string
+6. `self.config[parts[0][parts[1]]]` — double indexing on wrong object, should be `self.config[parts[0]][parts[1]]`
+7. Dot case handled but no `else` branch for flat keys
+8. `print(self.help("set"))` — `help` already prints, returns `None` → printed `None`
+
+**Agent connection:** This is the agent's identity layer. Every agent (ChatGPT, Claude, AutoGPT) has a config: system prompt, model, temperature, voice settings. JSON is the universal handoff format — read at startup, write on change, human-editable, type-safe.
+
+---
+
+## Roadmap Status
+- Phase 1 (Python Foundations): DONE
+- Phase 2.1 (File I/O - TaskQueue): DONE
+- Phase 2.2 (System Control - WorkspaceManager): DONE
+- Phase 2.3 (JSON + Config - ConfigManager): DONE
+- Next: Phase 3.1 — LLM API Call (requests to local/free AI model)
