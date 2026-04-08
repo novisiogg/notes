@@ -1,9 +1,17 @@
-people = {
-    "ahmed": {
-        "age": 12,
-        "height": 1.60
-    }
+import requests
+from requests.exceptions import RequestException
+
+url = "http://localhost:8000/"
+
+payload = {
+    "role": "user",
+    "content": "hey there"
 }
-ahmed = people["ahmed"]
-age = ahmed["age"]
-print(age)
+try:
+    response = requests.post(
+        url,
+        json=payload,
+        timeout=2
+    )
+except RequestException:
+    print("There was an error posting to " + url)

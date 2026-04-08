@@ -1,19 +1,13 @@
-## Status: Phase 2.3 — COMPLETE
+## Status: Phase 3.1 complete — ChatAgent with HTTP requests and history
 
-**Current code:** `phase2_3.py` — ConfigManager class (COMPLETE)
+**Phase 3.1 finished:** ChatAgent class built with:
+- Extends ConfigManager (inherits config dict via `self.config`)
+- Conversation history (`self.history` list of `{"role":..., "content":...}` dicts)
+- HTTP POST to LLM endpoint with `requests.post(..., json=payload)`
+- `try/except RequestException` for offline mock fallback
+- Commands: clear, status, quit
+- Bugs fixed: `self.config.get()` access, f-string quote collision, `response.json()["reply"]` extraction, double-print issue
 
-**Completed so far:**
-- `os` module: `create`, `recall`, `store`, `list_items`, `where`, `go`
-- `subprocess` module: `execute` (Popen for start, subprocess.run for run)
-- Help command system with `commands` dict (description, aliases, syntax)
-- Full `run()` loop routing all commands
-- Error handling: KeyboardInterrupt, FileNotFoundError, "already in dir" check, "dir already exists" check
+**Session ended mid-Phase 3.2 planning:** User burned out on streaming concept without live server. Pivoted to Phase 3.2b (Persistent Memory) instead.
 
-**Phase 2.3 (JSON + Config) — DONE:**
-- `json.dump()` / `json.load()` — write/read dicts to/from files
-- Default config dict, copied to avoid shared references
-- Dot-notation for nested key access (`set audio.language french`)
-- Commands: `show`, `set`, `save`, `load`, `reset`, `help`, `quit`
-- Self-contained defaults — no params needed in `__init__`
-
-**Next:** Phase 3.1 — LLM API call (requests module to hit a local/free AI model API endpoint)
+**Next:** Phase 3.2 — Save/load chat history to `chat_history.json` so conversations persist across sessions. Auto-save on quit, load on startup, `save_history`/`load_history` commands.
