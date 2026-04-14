@@ -1,0 +1,2 @@
+- [Deep learning preference](user_deep_learning.md) — Wants fundamental, first-principles explanations to build independently
+- [Current project phase](project_phase.md) — Phase 3.2b (Persistent Memory): ready to write phase3_2.py; mock_server.py exists
