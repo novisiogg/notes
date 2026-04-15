@@ -55,7 +55,7 @@ class ChatHandler(BaseHTTPRequestHandler):
 # ── SERVER BOOTSTRAP ──────────────────────────────────────────────────
 if __name__ == "__main__":
     # Bind to localhost:5000. 'localhost' resolves to 127.0.0.1.
-    server = HTTPServer(("localhost", 8000), ChatHandler)
+    server = HTTPServer(("localhost", 5000), ChatHandler)
     print("Mock server running on http://localhost:5000/api/chat")
     print("Press Ctrl+C to stop.")
     # Blocking infinite loop: accept() → handle() → close() → repeat.
