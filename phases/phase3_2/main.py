@@ -15,11 +15,6 @@ class ChatAgent(MemoryManager):
         interactions = self.state["metadata"]["total_interactions"]
         print(f"Interactions: {interactions}")
 
-    # def generate_response(self):
-    #     response : ChatResponse = chat(
-    #         model="llama3.1",
-    #         messages=self.state["history"],
-    #     )
 
     def run(self):
         try:
