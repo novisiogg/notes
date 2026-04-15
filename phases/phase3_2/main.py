@@ -15,7 +15,6 @@ class ChatAgent(MemoryManager):
         interactions = self.state["metadata"]["total_interactions"]
         print(f"Interactions: {interactions}")
 
-
     def run(self):
         try:
             if self.state["metadata"]["total_interactions"] == 1:
@@ -41,6 +40,7 @@ class ChatAgent(MemoryManager):
 
                 else:
                     self.add_chat_entry("user", user_input)
+                    print(f"\nAI is thinking...")
                     response: ChatResponse = chat(
                         model="llama3.1", messages=self.state["history"]
                     )

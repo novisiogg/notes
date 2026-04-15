@@ -1,6 +1,6 @@
 import requests
 from requests.exceptions import RequestException
-from phase2_3 import ConfigManager
+from phases.phase2_3.phase2_3 import ConfigManager
 import sys
 sys.path.append(".")
 

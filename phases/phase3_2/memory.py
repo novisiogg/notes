@@ -4,7 +4,7 @@ import os
 
 class MemoryManager:
     def __init__(self, filename="storage.json"):
-        self.state = {} # Edit this so it loads with the parameter by default
+        self.state = {}
 
     def save(self):
         try:

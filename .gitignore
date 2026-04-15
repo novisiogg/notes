@@ -1,2 +1,3 @@
 venv/
 storage.json
+__pycache__/
