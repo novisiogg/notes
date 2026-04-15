@@ -1,4 +1,3 @@
----
 
 ## ✅ Phase 1 & 2: Core Infrastructure (Completed)
 * **OOP Foundations**: Transitioned to Class-based architecture.
