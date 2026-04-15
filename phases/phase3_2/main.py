@@ -45,8 +45,8 @@ class ChatAgent(MemoryManager):
                         model="llama3.1", messages=self.state["history"]
                     )
                     bot_txt = response.message.content
-                    self.add_chat_entry("assistant", bot_txt)
                     print(f"\n{response.model}: {bot_txt}")
+                    self.add_chat_entry("assistant", bot_txt)
                     self.update_interactions()
                     self.save()
 
