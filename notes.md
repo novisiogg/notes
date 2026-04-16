@@ -552,6 +552,16 @@ self.save() # Persist the memory immediately
 - **The Params Pattern:** Used `requests.get(url, params=payload)` to handle **URL Encoding** (handles spaces/special chars in city names).
 - **Professional JSON Piercing:** Navigating nested API responses (e.g., `data["current"]["temp_c"]`).
 
+**Logic Update:**
+```python
+# The "Authenticated" Request Detail
+load_dotenv()
+API_KEY = os.getenv("WEATHER_API_KEY")
+payload = {"key": API_KEY, "q": city_name}
+response = requests.get(url, params=payload)
+data = response.json()
+```
+
 **Key bugs fixed:**
 1. **The "First Run" Crash:** Defined `city_data` inside an `if` block, making it invisible to the `else` block (NameError).
 2. **JSON Loading Error:** Used `json.load(data, f)` which passed an undefined variable. Fixed to `json.load(f)`.
