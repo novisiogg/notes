@@ -1,0 +1,28 @@
+{
+    "cities": [
+        {
+            "city": "Mohammedia",
+            "local time": "2026-04-16 17:11",
+            "temperature in celsius": 24.2,
+            "feels like": 25.8
+        },
+        {
+            "city": "New York",
+            "local time": "2026-04-16 12:16",
+            "temperature in celsius": 28.3,
+            "feels like": 28.4
+        },
+        {
+            "city": "Karabuk",
+            "local time": "2026-04-16 19:16",
+            "temperature in celsius": 13.7,
+            "feels like": 13.6
+        },
+        {
+            "city": "London",
+            "local time": "2026-04-16 17:16",
+            "temperature in celsius": 17.1,
+            "feels like": 17.1
+        }
+    ]
+}

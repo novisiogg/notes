@@ -531,13 +531,41 @@ self.save() # Persist the memory immediately
 
 ---
 
+# Phase 4.1 — The Request/Response Cycle (Networking Deep-Dive)
+
+**WHY:** To understand the "Physics" of the wire. Every agent interaction relies on the reliable movement of packets across a network.
+
+**Key Concepts:**
+- **The TCP Handshake:** The three-way handshake ($SYN \rightarrow SYN-ACK \rightarrow ACK$) that establishes a connection.
+- **IP vs. Port:** The IP finds the machine; the Port finds the specific "door" (e.g., Port 80 for HTTP, 443 for HTTPS).
+- **Status Codes:** 2xx (Success), 4xx (Client error like bad API key), 5xx (Server error like API crash).
+- **Endianness:** Network Byte Order is always **Big-Endian**. CPUs must often "flip" bytes to communicate correctly.
+
+---
+
+# Phase 4.2 — API Integration & Security (COMPLETE)
+
+**WHY:** Transitioning from "Free/Scraped" data to "Professional/Authenticated" data. Managing secrets and structured queries.
+
+**Key Implementations:**
+- **Secrets Management:** Implemented `.env` files and `python-dotenv` to keep API keys out of GitHub. 
+- **The Params Pattern:** Used `requests.get(url, params=payload)` to handle **URL Encoding** (handles spaces/special chars in city names).
+- **Professional JSON Piercing:** Navigating nested API responses (e.g., `data["current"]["temp_c"]`).
+
+**Key bugs fixed:**
+1. **The "First Run" Crash:** Defined `city_data` inside an `if` block, making it invisible to the `else` block (NameError).
+2. **JSON Loading Error:** Used `json.load(data, f)` which passed an undefined variable. Fixed to `json.load(f)`.
+3. **Missing Params Argument:** Attempted `requests.get(url, payload)` which sent data as headers. Fixed to `params=payload`.
+
+---
+
 ## Roadmap Status
-- Phase 1 (Python Foundations): DONE
-- Phase 2 (File I/O & OS Control): DONE
-- Phase 3.1 (HTTP & Mock History): DONE
-- Phase 3.2 (Modular Persistence): DONE
-- Phase 3.3 (Local LLM Integration): DONE
-- **Next: Phase 4.1 — The Request/Response Cycle (Networking Deep-Dive)**
+- Phase 1 (OOP Foundations): **DONE**
+- Phase 2 (File I/O & OS Control): **DONE**
+- Phase 3 (Local Inference/Context): **DONE**
+- Phase 4.1 (Request/Response Cycle): **DONE**
+- Phase 4.2 (API Integration): **DONE**
+- **Next: Phase 4.2 Deeper — Local REST API Server & FastAPI**
 
 ---
 
@@ -545,5 +573,6 @@ self.save() # Persist the memory immediately
 * **Return vs. Print:** Functions that "do work" should `return` a status string so the caller can decide how to show it.
 * **Paths Matter:** In a dictionary, `metadata` and `history` are siblings. If you lose track of the path, you lose the data.
 * **Memory is a Loop:** An AI doesn't "know" you; it just reads the transcript you give it very, very fast. Keep your transcript clean!
+* **Ports are Bindings:** An application must "claim" a port from the OS. If two apps try to claim the same port, the second one will crash with `AddressAlreadyInUse`.
 
 
