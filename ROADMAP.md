@@ -226,3 +226,249 @@
 * **Communities**: Reddit r/LocalLLaMA, Hugging Face forums, and GitHub.
 
 ---
+
+# 🕹️ PROJECTS
+
+---
+
+## 🐍 Phase 0: Python Mastery
+
+### 0.1 · Python Language Deep Dive
+- **Decorator-powered Logging**  
+  Implement logging and timing decorators for AI function calls.
+- **Custom Context Manager**  
+  Write a context manager that tracks resource usage (memory/CPU) during model inference.
+- **Fault-Tolerant AI Service**  
+  Build an exception-resilient “mini agent” that never crashes, logging all errors to a file.
+- **Data Streaming Generator**  
+  Create a generator that streams large datasets for ML, one batch at a time.
+
+### 0.2 · Typing, Packaging & Testing
+- **Typed AI API**  
+  Build a tiny inference API with full type annotations and enforce them with `mypy`.
+- **Reusable AI Utility Package**  
+  Make a Python package (with tests and `setup.py`) for common tasks (e.g., text cleaning, tokenizing).
+- **Test-Driven Model Evaluation**  
+  Write tests to verify correctness of preprocessing and model output.
+
+### 0.3 · Performance, Concurrency, Debugging
+- **Performance Profiler**  
+  Instrument a model inference pipeline to profile and optimize bottlenecks.
+- **Concurrent Inference Server**  
+  Use threads/asyncio to allow your AI app to handle multiple requests simultaneously.
+- **Debuggable Chatbot**  
+  Add live debugging (breakpoints, logging) to your console AI assistant.
+
+---
+
+## 🏗️ Phase 1 & 2: Core Infrastructure
+
+- **OOP-Powered Agent**  
+  Refactor a chatbot or image classifier into a fully class-based architecture.
+- **Persistent Memory Bot**  
+  Create a to-do assistant that remembers tasks (JSON on disk) even after restart.
+- **MemoryManager Demo**  
+  Build a modular “library” class that supports swapping storage backends (file/cloud).
+- **System-Aware AI**  
+  Agent can launch/terminate local programs based on user requests.
+
+---
+
+## 🧠 Phase 3: The Brain & Memory
+
+- **History-Aware Chatbot**  
+  An AI assistant that maintains conversational context/history and summaries.
+- **Factory Reset Logic**  
+  Add “memory wipe” and selective reset features to your bot UI.
+- **Local Agent with Ollama**  
+  Connect to Llama locally for inference, expose via Python.
+- **Memory-Scoped Notepad**  
+  AI app with temporary (history) and permanent (metadata) notes.
+
+---
+
+## 🌐 Phase 4: Networking & External Senses
+
+### 4.1 · The Request/Response Cycle
+- **Mini HTTP Client**  
+  Python CLI for GET/POST requests and JSON API parsing.
+- **Raw Socket Bot**  
+  Tiny TCP server/client for echo or Q&A.
+- **OSI Visualizer**  
+  Log/draw the OSI layers involved in an AI web request.
+
+### 4.2 · API Integration & Tooling
+- **Weather/News Agent Tool**  
+  AI module for fetching real-world data via an external API.
+- **Rate Limit Demo**  
+  App detects and adapts to API rate limits (retry/backoff).
+- **DIY REST API**  
+  Serve inference or DB using FastAPI.
+
+### 4.3 · Asynchronous Execution (asyncio)
+- **Async Web Scraper**  
+  Fetch multiple web pages concurrently (AI “data gathering”).
+- **Async Task Scheduler**  
+  Handle long-running tasks using async (e.g., reminders).
+- **Concurrency Benchmark**  
+  Compare threading, async, and multiprocessing for model inference.
+
+---
+
+## 🔊 Phase 5: Physical Senses (Voice, Audio, Beyond)
+
+### 5.1 · Text-to-Speech (TTS)
+- **Talking AI Assistant**  
+  Turn bot responses into speech (`gTTS`, `edge-tts`, etc.).
+- **Audio Dashboard**  
+  Visualize waveforms, bitrates of AI-generated audio.
+- **Custom Voice Filtering**  
+  Add echo, change speed, or basic DSP effects.
+
+### 5.2 · Speech-to-Text (STT)
+- **Voice-Controlled Agent**  
+  Control an agent with speech input (`SpeechRecognition`, `Whisper`).
+- **Silence Detector**  
+  Implement VAD for start/stop recording.
+- **Speech Analysis**  
+  Draw real-time audio spectrogram from mic input.
+
+### 5.3 · Sensing Beyond Audio
+- **Image Recognizer**  
+  AI vision agent with webcam, using `opencv`.
+- **Sensor Dashboard**  
+  Simulate or connect basic sensors, feed live data to AI.
+
+---
+
+## 🤖 Phase X: AI & Machine Learning Foundations
+
+### X.1 · Data & ML Problem Types
+- **AI Data Explorer**  
+  Tool to load, clean, and visualize datasets.
+- **Auto Splitter**  
+  Script to automate train/test splits.
+
+### X.2 · Classic Algorithms & Evaluation
+- **Play with Classics**  
+  MNIST classifier (logistic regression, decision trees).
+- **Confusion Matrix Dashboard**  
+  Visualize model errors & accuracy.
+
+### X.3 · Probability & Statistics
+- **Bias Detector**  
+  Agent summarizes distributions and flags data bias.
+- **Random Outcome Simulator**  
+  Use probability for outcome prediction (e.g., spam detection).
+
+### X.4 · NN & Deep Learning Basics
+- **Build-Your-Own NN**  
+  Train a toy neural network (e.g., XOR).
+- **NN Visualizer**  
+  Show activations/weights as the network learns.
+- **Regularization Playground**  
+  Demo overfitting and dropout.
+
+### X.5 · Model Management & Reproducibility
+- **Experiment Logger**  
+  Track all hyperparameters and results.
+- **Simple Deployment**  
+  Serve a trained model (Flask/FastAPI).
+
+### X.6 · AI Ethics, Bias, Explainability
+- **Bias Audit**  
+  Dashboard to show and mitigate model bias.
+- **Explain-a-Prediction**  
+  SHAP or similar to explain model outputs.
+
+---
+
+## 🧠 Phase 6: Deep Memory (RAG, Vector Math)
+
+- **Embeddings Explorer**  
+  Visualize and compare text/image embeddings; cosine similarity search.
+- **Mini RAG Bot**  
+  Use vector search + LLM to answer from knowledge base.
+- **Custom Vector DB**  
+  Make a mini FAISS/ChromaDB system for a toy dataset.
+
+---
+
+## 🤖 Phase 7: Autonomous Agency
+
+- **Function Calling Demo**  
+  LLM calls Python tools defined with JSON schema.
+- **ReAct Agent**  
+  Model reasons aloud and takes action in a loop.
+- **Task Allocation Simulator**  
+  Multi-agent system (planner, worker, critic).
+
+---
+
+## 🛡️ Phase 8: Hardening & Professionalism
+
+- **Dockerized AI Service**  
+  Containerize your agent with secrets management.
+- **Resilient API**  
+  Add retry/circuit-breaker logic to model serving.
+- **Security Scanner**  
+  Tool to analyze code for security issues.
+- **Ethics Pledge Display**  
+  Add visible privacy/ethics policy to outputs.
+
+---
+
+## 🔬 Phase 9: To the Metal – Fundamentals
+
+### 9.1 · OS & Process Control
+- **Resource Monitor**  
+  Script logs AI CPU/memory usage live.
+- **Controlled Forking**  
+  Run multiple agent subprocesses and aggregate outputs.
+
+### 9.2 · Computer Architecture
+- **Bit Visualizer**  
+  Binary/hex of weights or floating-point rounding.
+- **Model Compression Lab**  
+  Quantize weights, compare performance.
+
+### 9.3 · Networks & Protocols
+- **AI Chat Server**  
+  Secure, minimal chat server with SSL and sockets.
+- **DNS Explorer**  
+  AI logs domain→IP lookups made.
+
+### 9.4 · Mathematics for AI
+- **Matrix Playground**  
+  Visualize matrix operations; interactively demo linear algebra.
+- **Gradient Descent Animator**  
+  Show each step of loss minimization.
+
+---
+
+## 🦾 Phase 10: Build Your Own Local LLM
+
+- **Local LLM Interface**  
+  UI (terminal/web) to talk to Ollama/llama.cpp.
+- **Mini Fine-Tuner**  
+  Script to (simulate) fine-tune on your data.
+- **Prompt Inspector**  
+  UI displays prompt, completion, and LLM “thoughts.”
+- **Model Explorer**  
+  Compare Llama, Mistral, etc., side-by-side.
+
+---
+
+## 🧩 Phase 11: Philosophy & Next Frontiers
+
+- **AI Thought Journal**  
+  Log and visualize: "What does my agent actually understand?"
+- **Symbolic Reasoning Bot**  
+  Integrate rule-based logic with neural agent.
+- **Chinese Room Simulator**  
+  Script/game simulating the famous philosophy thought experiment.
+- **AGI Debate Club**  
+  Agent that debates definitions of intelligence.
+
+---
+
