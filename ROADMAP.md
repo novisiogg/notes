@@ -1,3 +1,28 @@
+## ✅ Phase 0: Python Mastery & Best Practices
+
+*Focus: Technical fluency and professional standards for Python codebases.*
+
+### 0.1 Python Language Deep Dive
+* **Decorators**: Creating and applying, with and without arguments.
+* **Context Managers**: Using `with`, and writing custom context managers (`__enter__`, `__exit__`).
+* **Exceptions**: Catching, raising, creating custom exceptions, using `finally`, and robust error handling patterns.
+* **Iterables, Generators & Comprehensions**: How generators save memory, generator expressions, custom iterators (`__iter__`, `__next__`).
+* **Meta-programming & Reflection**: Inspecting objects with `inspect`, `getattr`, dynamic class creation.
+
+### 0.2 Typing, Packaging & Testing
+* **Type Hints & Static Analysis**: Using the `typing` module, `mypy` for static checks, runtime validation.
+* **Packaging & Distribution**: Writing `pyproject.toml`, building wheels, publishing to PyPI.
+* **Unit Testing & Mocking**: `unittest`, `pytest`, fixtures, mocking, code coverage.
+* **Documentation**: Writing docstrings (PEP 257), generating reference docs (Sphinx/pdoc).
+* **Linting & Formatting**: Enforcing with `flake8`, `black`, `isort`.
+
+### 0.3 Performance, Concurrency, and Debugging
+* **Profiling & Optimization**: `cProfile`, `timeit`, identifying bottlenecks.
+* **Debugging Tools**: Using `pdb`, effective breakpoints, IDE debuggers.
+* **Concurrency Patterns**: When to use threads, processes, asyncio, and `concurrent.futures`.
+
+---
+
 
 ## ✅ Phase 1 & 2: Core Infrastructure (Completed)
 * **OOP Foundations**: Transitioned to Class-based architecture.
@@ -133,6 +158,44 @@
 * **Linear Algebra**: Vectors, matrices, and tensor operations.
 * **Calculus**: Derivatives, gradients, and optimization via gradient descent.
 * **Probability**: Bayesian reasoning, softmax functions, and entropy.
+
+---
+
+## 🦾 Phase X: AI Fundamentals & Machine Learning Foundations
+
+*Focus: Classic ML, core math, hands-on with data, deep learning concepts, and evaluation.*
+
+### X.1 Data and ML Problem Types
+* **Supervised & Unsupervised Learning**: Classification, regression, clustering.
+* **Data Preparation**: Cleaning, splitting (train/test/validation), handling missing values, feature scaling.
+* **Exploring Data**: `pandas` basics, statistical summaries, visualizations (`matplotlib`, `seaborn`).
+
+### X.2 Classic Algorithms & Evaluation
+* **Core Algorithms**: Linear regression, logistic regression, k-NN, decision trees, k-means.
+* **Evaluation Metrics**: Accuracy, precision, recall, F1, ROC/AUC, confusion matrices, cross-validation.
+* **Overfitting / Underfitting**: Causes and cures.
+
+### X.3 Probability & Statistics for AI
+* **Probability Distributions**: Gaussian, categorical, Bernoulli.
+* **Bayesian Inference**: Basics and when to use.
+* **Randomness and Reproducibility**: Seeding, random states, experiment tracking.
+
+### X.4 Neural Networks & Deep Learning Basics
+* **NN Anatomy**: Layers, weights, activations (sigmoid, ReLU, softmax).
+* **Backpropagation & Gradient Descent**: How models learn.
+* **Regularization**: Dropout, L1/L2 penalties, batch normalization.
+* **Training Routines**: SGD, Adam optimizers, learning curves.
+* **Intro to Architectures**: CNN, RNN/LSTM/GRU (basic concepts, use cases).
+* **Frameworks**: `PyTorch` or `TensorFlow` first models (from data to prediction).
+
+### X.5 Model Management & Reproducibility
+* **Logging & Experiment Tracking**: Using MLflow, WandB, or manual strategies.
+* **Versioning & Deployment**: Saving models, inference basics, environment capture.
+
+### X.6 AI Ethics, Bias, Explainability
+* **Bias & Fairness**: Recognizing, quantifying, and mitigating.
+* **Explainability**: Feature importances, SHAP, LIME basics.
+* **Data Privacy**: Handling sensitive data, privacy-preserving approaches.
 
 ---
 
