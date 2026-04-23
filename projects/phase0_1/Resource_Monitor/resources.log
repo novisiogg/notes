@@ -1,0 +1,8 @@
+2026-04-23 13:19:41,453 - httpx - INFO: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-23 13:19:41,454 - Resource Monitor - INFO: [AI inference] Memory Delta: 0.58MB | Time Elapsed: 5.70s
+2026-04-23 13:22:10,403 - httpx - INFO: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-23 13:22:10,403 - Resource Monitor - INFO: [AI inference] Memory Delta: 0.56MB | Time Elapsed: 0.95s
+2026-04-23 13:22:54,565 - httpx - INFO: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-23 13:22:54,567 - Resource Monitor - INFO: [AI inference] Memory Delta: 0.59MB | Time Elapsed: 1.69s
+2026-04-23 13:22:59,680 - httpx - INFO: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-23 13:22:59,680 - Resource Monitor - INFO: [AI inference] Memory Delta: 0.02MB | Time Elapsed: 1.75s
