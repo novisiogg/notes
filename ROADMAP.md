@@ -1065,6 +1065,16 @@
 - **Terraform Secure Baseline**
   Write Terraform that deploys a VPC with public/private subnets, an EC2 instance with IMDSv2 enforced, an S3 bucket with all public access blocked, and CloudTrail enabled — run `tfsec` and fix every finding.
 
+## 🛠️ Professional & Deployment Projects
+
+- **CI/CD Workflow**: Add and document a GitHub Actions workflow for one chosen project.
+- **Production Monitoring**: Implement simple logging, health checks, or status endpoint in your API server(s).
+- **Code Review / Open Source Contribution**: Participate in or simulate a code review; submit a PR to an open-source AI/Python project.
+- **Web UI/UX Polish**: Build a minimal web frontend or CLI enhancement for an existing project.
+- **Real-Time Dashboard**: Visualize metrics or model predictions live for any agent.
+- **Async Benchmarking**: Measure and document sync vs. async API throughput for your ML inference service.
+- **Cross-language Exploration**: (Optional) Replicate a core utility or agent prototype in Rust, Go, or C, then document comparison with Python.
+
 
 ---
 
