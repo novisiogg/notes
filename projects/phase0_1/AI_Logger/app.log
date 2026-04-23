@@ -1,0 +1,2 @@
+2026-04-23 11:03:56,030 - httpx - INFO: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-23 11:03:56,030 - AI Logger - INFO: SUCCESS: ai_call | Arguments: ('hello',) | Duration: 1.6647485000012239s

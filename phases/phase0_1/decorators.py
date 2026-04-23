@@ -1,4 +1,5 @@
 from functools import wraps
+import time
 
 
 def security_level(n):
@@ -26,8 +27,6 @@ print(security("novisio"))
 
 # Repeats the function n times
 
-from functools import wraps
-
 
 def repeater(n):
     def repeat_function(func):
@@ -47,3 +46,77 @@ def greet():
 
 
 greet()
+
+# Limits the amount a function can be called
+
+
+def limiter(n):
+    def limit_count(func):
+        count = 0
+
+        def inner():
+            nonlocal count
+            if count < n:
+                count += 1
+                func()
+            else:
+                print("Limit reached.")
+
+        return inner
+
+    return limit_count
+
+
+@limiter(3)
+def goodbye():
+    print("Good bye!")
+
+
+goodbye()
+
+# Logs what the function does.
+
+
+def debug_logger(func):
+    @wraps(func)
+    def inner(*args, **kwargs):
+        func_name = func.__name__
+        func_result = func(*args, **kwargs)
+        print(f"Calling function: {func_name} with args: {args}, and kwargs: {kwargs}")
+        print(f"{func_name} returned: {func_result}")
+        return func_result
+
+    return inner
+
+
+@debug_logger
+def add(a, b):
+    return a + b
+
+
+result = add(10, 20)
+print(f"The final result is {result}")
+
+
+def measure_time(func):
+    @wraps(func)
+    def inner(*args, **kwargs):
+        function_name = func.__name__
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(
+            f"[TIMER]: {function_name} took [{-start_time + end_time}] seconds to execute."
+        )
+        return result
+
+    return inner
+
+
+@measure_time
+def simple_function():
+    time.sleep(2)
+    print("hi there.")
+
+
+simple_function()
