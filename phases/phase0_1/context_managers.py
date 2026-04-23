@@ -1,4 +1,7 @@
-class MultiResourseManager:
+from contextlib import contextmanager
+
+
+class MultiResourceManager:
     def __init__(self, filenames: list):
         self.filenames = filenames
         self.mounted_filenames = []
@@ -20,7 +23,32 @@ class MultiResourseManager:
         return False
 
 
-with MultiResourseManager(["db.bin", "config.json", "CRITICAL_FAIL"]) as manager:
+with MultiResourceManager(["db.bin", "config.json", "CRITICAL_FAIL"]) as manager:
     print(manager)
     print(manager.mounted_filenames)
 print("Program continued execution successfully!")
+
+
+# There's another way to creating context managers
+@contextmanager
+def MultiResourceManagerTwo(filenames: list):
+    mounted_files = []
+
+    try:
+        # 🔧 setup phase (like __enter__)
+        for filename in filenames:
+            if filename == "CRITICAL_FAIL":
+                print("CRITICAL_FAIL: Mounting aborted. Rolling back...")
+                raise RuntimeError("Mounting failed")
+            mounted_files.append(filename)
+
+        yield mounted_files  # 👈 what `as` receives
+
+    finally:
+        # 🧹 cleanup on failure
+        for name in reversed(mounted_files):
+            print(f"SYSTEM SECURED: Unmounting {name}...")
+
+
+with MultiResourceManagerTwo(["db.bin", "config.json", "CRITICAL_FAIL"]) as manager:
+    print(manager)
