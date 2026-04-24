@@ -3,4 +3,5 @@ storage.json
 __pycache__/
 .env
 SESSION_LOG.md
-.vscode
+.vscode/
+mentor.py
