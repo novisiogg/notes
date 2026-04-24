@@ -2,11 +2,10 @@ import logging
 import psutil
 import os
 import time
+from pathlib import Path
 from contextlib import contextmanager
 
-DECORATOR_DIR = os.path.dirname(os.path.abspath(__file__))
-log_file_path = os.path.join(DECORATOR_DIR, "resources.log")
-
+log_file_path = Path("projects/phase0_1/Resource_Monitor") / "resources.log"
 # Gets an instance of logger
 logger = logging.getLogger("Resource Monitor")
 logging.basicConfig(

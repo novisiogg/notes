@@ -35,8 +35,8 @@ class ChatAgent:
                         )
 
                     ai_response = response.message.content
-                    self.memory.add_messages("assistant", ai_response)
                     self.memory.increment_interactions()
+                    self.memory.add_messages("assistant", ai_response)
                     print(ai_response)
         except KeyboardInterrupt:
             print("\nFile interrupted.")

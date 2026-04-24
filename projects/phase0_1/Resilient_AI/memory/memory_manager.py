@@ -1,9 +1,8 @@
 import json
-import os
+from pathlib import Path
 from projects.phase0_1.Resilient_AI.logs.logger import logger
 
-directory_path = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(directory_path, "history.json")
+file_path = Path("projects/phase0_1/Resilient_AI/memory") / "history.json"
 
 
 class MemoryManager:
@@ -23,7 +22,7 @@ class MemoryManager:
         }
 
     def load_history(self):
-        if os.path.exists(self.filename):
+        if self.filename.exists():
             try:
                 with open(self.filename, "r") as f:
                     data = json.load(f)
