@@ -9,7 +9,7 @@
 - **Dependency Injection:** Refractored functions to accept external configurations (like *log_path*) instead of hardcoding them.
 
 ## Code Patterns & Snippets
-`phases\phase0_1\context_managers.py`
+### `phases\phase0_1\context_managers.py`
 ```python
 @contextmanager
 def MultiResourceManagerTwo(filenames: list):
@@ -35,7 +35,7 @@ with MultiResourceManagerTwo(["db.bin", "config.json", "CRITICAL_FAIL"]) as mana
     print(manager)
 ```
 
-`phases\phase0_1\decorators.py`
+### `phases\phase0_1\decorators.py`
 ```python
 def measure_time(func):
     @wraps(func)
@@ -50,18 +50,9 @@ def measure_time(func):
         return result
 
     return inner
-
-
-@measure_time
-def simple_function():
-    time.sleep(2)
-    print("hi there.")
-
-
-simple_function()
 ```
 
-`phases\phase0_1\exceptions.py`
+### `phases\phase0_1\exceptions.py`
 ```python
 class InvalidInferenceConfig(Exception):
     def __init__(self, message, code):
@@ -84,20 +75,14 @@ finally:
     print("[SYSTEM]: Config check complete.")
 ```
 
-`phases\phase0_1\generators.py`
+### `phases\phase0_1\generators.py`
 ```python
 # [expression for item in iterable if condition] - List comprehensions
 names_list = ["novisiogg", "zouma", "tyx", "regedit"]
 # removes name if it's not "novisiogg"
 res = [names_list.remove(name) for name in reversed(names_list) if name != "novisiogg"] # reversed since we're updating the list in a loop
-print(names_list)
 
 # {key_expression: value_expression for item in iterable if condition} - Dictionary comprehension
-# Returns the square root of a number from x to y-1
-result = {num: math.sqrt(num) for num in range(1,10)}
-print(result)
-
-
 first_names = ["novisio", "zouma", "tyx"]
 last_names = ["gg", "games", "maftouh"]
 
@@ -108,7 +93,6 @@ print(another_result)
 
 l = [1, 1, 3, 2, 5, 6]
 reslt = {num**2 for num in l}
-print(reslt)
 ```
 
 ## Exercises/Projects Done
@@ -116,19 +100,5 @@ print(reslt)
 - `projects\phase0_1\Data_Streaming`
 - `projects\phase0_1\Resilient_AI`
 - `projects\phase0_1\Resource_Monitor`
+
 ---
-## Phase 0.2 — [Typing, Packaging & Testing]
-
-## Core Concepts & Patterns
-- [Add concepts here]
-
-## Code Patterns & Snippets
-```python
-# Your snippets here
-```
-
-## Bugs/Issues Fixed
-1. [Fix description]
-
-## Exercises/Projects Done
-- [Work done]
