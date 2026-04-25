@@ -5,10 +5,6 @@ import time
 from pathlib import Path
 from contextlib import contextmanager
 
-current_dir = Path(__file__).resolve().parent
-
-log_file_path = current_dir / "resources.log"
-
 
 def setup_logger(log_file):
     logger = logging.getLogger("Resource Monitor")
