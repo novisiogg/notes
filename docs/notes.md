@@ -101,3 +101,19 @@ reslt = {num**2 for num in l}
 * [Resilient_AI](../projects/phase0_1/Resilient_AI)
 * [Resource_Monitor](../projects/phase0_1/Resource_Monitor/)
 ---
+## Phase 0.2 — [Typing, Packaging & Testing]
+
+## Core Concepts & Patterns
+- [Add concepts here]
+
+## Code Patterns & Snippets
+### [`FILE`](../phases/phase0_2/FILE)
+```python
+# Your snippets here
+```
+
+## Bugs/Issues Fixed
+1. [Fix description]
+
+## Exercises/Projects Done
+* [PROJECT_NAME](../projects/phase0_2/PROJECT_NAME)

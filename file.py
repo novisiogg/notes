@@ -1,6 +1,6 @@
 from pathlib import Path
 
-file_path = Path("C:/Users/vwu/Desktop/notes/docs") / "TAKEAWAYS.md"
+file_path = Path("C:/Users/vwu/Desktop/notes/docs") / "NOTES.md"
 
 
 class FileManager:
@@ -19,13 +19,14 @@ class FileManager:
     def save(self, content):
         self.filename.write_text(content, encoding="utf-8")
 
-    def build_phase(self, phase_num, phase_title):
+    def build_phase(self, phase_num: str, phase_title: str):
         return f"""## Phase {phase_num} — [{phase_title}]
 
 ## Core Concepts & Patterns
 - [Add concepts here]
 
 ## Code Patterns & Snippets
+### [`FILE`](../phases/phase{phase_num.replace(".", "_")}/FILE)
 ```python
 # Your snippets here
 ```
@@ -34,7 +35,7 @@ class FileManager:
 1. [Fix description]
 
 ## Exercises/Projects Done
-- [Work done]
+* [PROJECT_NAME](../projects/phase{phase_num.replace(".", "_")}/PROJECT_NAME)
 """
 
     def add_phase(self, phase_num, phase_title):

@@ -4,4 +4,5 @@ __pycache__/
 .env
 .vscode
 mentor.py
-takes.md
+PREVIOUS_NOTES
+file.py
