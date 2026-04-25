@@ -1,6 +1,5 @@
 import ollama
 import sys
-import os
 from pathlib import Path
 
 # Identify project root (where the 'projects' folder lives)
@@ -16,18 +15,18 @@ from phase0_1.Resource_Monitor.resource_monitor import resource_monitor
 
 batch_file = (
     Path(r"C:\Users\vwu\Desktop\notes\projects\phase0_1\Data_Streaming\batch")
-    / "large_file.txt"
+    / "ROADMAP.md"
 )
 
 log_path = Path(__file__).resolve().parent / "resources.log"
 
 
-if batch_file.exists():
-    print("file already exists. not writing anything to it")
-else:
-    with open(batch_file, "w", encoding="utf-8") as f:
-        for i in range(1_000_000):
-            f.write(f"Line {i}. This is dummy data.\n")
+def ollama_call(batch):
+    text = "".join(batch)
+    response = ollama.chat(
+        model="llama3.1", messages=[{"role": "user", "content": text}]
+    )
+    return response
 
 
 def implement_batch(file, batch_size=100):
@@ -47,19 +46,9 @@ def implement_batch(file, batch_size=100):
 
 with resource_monitor("Batch Streaming", log_path):
     my_stream = implement_batch(batch_file, 100)
-    for batch in my_stream:
-        print(f"DEBUG: Just received a batch of a {len(batch)}")
-
-
-def simple_return(file):
-    try:
-        with open(file, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-            return lines
-    except:
-        print("File not found.")
-
-
-with resource_monitor("Simple Streaming", log_path):
-    lines = simple_return(batch_file)
-    print(f"DEBUG: Simple Streaming loaded {len(lines)} lines into memory.")
+    for i, batch in enumerate(my_stream):
+        try:
+            ollama_call(batch)
+            print(f"Successfully processed batch {i}")
+        except Exception as e:
+            print(f"Failed on batch {i}, {e}")
