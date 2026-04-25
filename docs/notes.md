@@ -9,7 +9,7 @@
 - **Dependency Injection:** Refractored functions to accept external configurations (like *log_path*) instead of hardcoding them.
 
 ## Code Patterns & Snippets
-### `phases\phase0_1\context_managers.py`
+### [`context_managers.py`](../phases/phase0_1/context_managers.py)
 ```python
 @contextmanager
 def MultiResourceManagerTwo(filenames: list):
@@ -35,7 +35,7 @@ with MultiResourceManagerTwo(["db.bin", "config.json", "CRITICAL_FAIL"]) as mana
     print(manager)
 ```
 
-### `phases\phase0_1\decorators.py`
+### [`decorators.py`](../phases/phase0_1/decorators.py)
 ```python
 def measure_time(func):
     @wraps(func)
@@ -52,7 +52,7 @@ def measure_time(func):
     return inner
 ```
 
-### `phases\phase0_1\exceptions.py`
+### [`exceptions.py`](../phases/phase0_1/exceptions.py)
 ```python
 class InvalidInferenceConfig(Exception):
     def __init__(self, message, code):
@@ -75,7 +75,7 @@ finally:
     print("[SYSTEM]: Config check complete.")
 ```
 
-### `phases\phase0_1\generators.py`
+### [`generators.py`](../phases/phase0_1/generators.py)
 ```python
 # [expression for item in iterable if condition] - List comprehensions
 names_list = ["novisiogg", "zouma", "tyx", "regedit"]
