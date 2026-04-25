@@ -343,12 +343,6 @@
 * **Retrieval-Augmented Generation (RAG) Revisited**: Why RAG is an architectural workaround for finite context; its limits.
 * **Long-Context Architectures**: Sparse attention, sliding window attention (Mistral), state-space models (Mamba) as an alternative paradigm.
 
-### 8.12 Hands-On Projects
-* **Attention from Scratch**: Implement scaled dot-product attention and multi-head attention in pure `numpy`; verify against a `PyTorch` reference.
-* **Tiny GPT**: Build and train a character-level GPT (following Karpathy's nanoGPT) on a small text corpus; understand every line.
-* **Tokenizer Inspector**: Write a script that tokenizes the same sentence in 5 different tokenizers (GPT-4, Llama 3, Mistral, BERT, T5) and visualizes the differences.
-* **Attention Pattern Visualizer**: Run a small open-source model and visualize the attention weights across heads for a chosen input; identify what different heads appear to attend to.
-* **LoRA Fine-Tune**: Use `peft` + `transformers` to LoRA fine-tune a small model (e.g., Phi-3-mini) on a custom Q&A dataset; evaluate before and after.
 
 ---
 
@@ -583,14 +577,6 @@
 * **The Well-Architected Framework (Security Pillar)**: AWS's own security best practices; the five design principles.
 * **Terraform for Secure Infrastructure**: Writing infrastructure-as-code with security built in; `tfsec` and `checkov` for static analysis of Terraform.
 * **Incident Response in the Cloud**: Isolating a compromised EC2 instance; capturing memory and disk for forensics; the IR runbook.
-
-### 15.10 Hands-On Projects
-* **IAM Privilege Escalation Lab**: Set up a deliberately misconfigured AWS account (use a free-tier sandbox); start with a low-privilege IAM user; escalate to admin using at least 2 different paths; document each step.
-* **S3 Bucket Auditor**: Build a Python tool using `boto3` that scans all S3 buckets in an account for public access, missing encryption, disabled logging, and missing versioning; output a prioritized risk report.
-* **SSRF to IMDS Simulation**: Build a deliberately vulnerable Flask app that has an SSRF vulnerability; exploit it to retrieve simulated IMDS credentials; then patch the app and document the fix.
-* **CloudTrail Anomaly Detector**: Write a Python script that reads CloudTrail logs and flags suspicious events: root account usage, IAM user creation, policy changes, access from new regions, and high-volume API calls.
-* **Secrets Scanner**: Build a tool that clones a public GitHub repo and scans the entire git history for hardcoded AWS keys, passwords, and tokens using regex and entropy analysis; test it against repos known to have had leaked credentials.
-* **Terraform Secure Baseline**: Write Terraform that deploys a VPC with public/private subnets, an EC2 instance with IMDSv2 enforced, an S3 bucket with all public access blocked, and CloudTrail enabled — run `tfsec` and fix every finding.
 
 ---
 
@@ -901,6 +887,13 @@
 - **Quantization Comparison**
   Load the same model in Q4, Q5, and Q8 via `llama.cpp`; benchmark speed, memory usage, and output quality on the same prompt set.
 
+  ### 8.11 Hands-On Projects
+* **Attention from Scratch**: Implement scaled dot-product attention and multi-head attention in pure `numpy`; verify against a `PyTorch` reference.
+* **Tiny GPT**: Build and train a character-level GPT (following Karpathy's nanoGPT) on a small text corpus; understand every line.
+* **Tokenizer Inspector**: Write a script that tokenizes the same sentence in 5 different tokenizers (GPT-4, Llama 3, Mistral, BERT, T5) and visualizes the differences.
+* **Attention Pattern Visualizer**: Run a small open-source model and visualize the attention weights across heads for a chosen input; identify what different heads appear to attend to.
+* **LoRA Fine-Tune**: Use `peft` + `transformers` to LoRA fine-tune a small model (e.g., Phi-3-mini) on a custom Q&A dataset; evaluate before and after.
+
 ---
 
 ## 🧠 Phase 9: Deep Memory (RAG, Vector Math)
@@ -1064,6 +1057,14 @@
 ### 15.6 · Hardening
 - **Terraform Secure Baseline**
   Write Terraform that deploys a VPC with public/private subnets, an EC2 instance with IMDSv2 enforced, an S3 bucket with all public access blocked, and CloudTrail enabled — run `tfsec` and fix every finding.
+
+### 15.7 Hands-On Projects
+* **IAM Privilege Escalation Lab**: Set up a deliberately misconfigured AWS account (use a free-tier sandbox); start with a low-privilege IAM user; escalate to admin using at least 2 different paths; document each step.
+* **S3 Bucket Auditor**: Build a Python tool using `boto3` that scans all S3 buckets in an account for public access, missing encryption, disabled logging, and missing versioning; output a prioritized risk report.
+* **SSRF to IMDS Simulation**: Build a deliberately vulnerable Flask app that has an SSRF vulnerability; exploit it to retrieve simulated IMDS credentials; then patch the app and document the fix.
+* **CloudTrail Anomaly Detector**: Write a Python script that reads CloudTrail logs and flags suspicious events: root account usage, IAM user creation, policy changes, access from new regions, and high-volume API calls.
+* **Secrets Scanner**: Build a tool that clones a public GitHub repo and scans the entire git history for hardcoded AWS keys, passwords, and tokens using regex and entropy analysis; test it against repos known to have had leaked credentials.
+* **Terraform Secure Baseline**: Write Terraform that deploys a VPC with public/private subnets, an EC2 instance with IMDSv2 enforced, an S3 bucket with all public access blocked, and CloudTrail enabled — run `tfsec` and fix every finding.
 
 ## 🛠️ Professional & Deployment Projects
 
