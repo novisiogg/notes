@@ -96,9 +96,8 @@ reslt = {num**2 for num in l}
 ```
 
 ## Exercises/Projects Done
-* [projects\phase0_1\AI_Logger](file:///C:/Users/vwu/Desktop/notes/projects/phase0_1/AI_Logger)
-* [projects\phase0_1\Data_Streaming](file:///C:/Users/vwu/Desktop/notes/projects/phase0_1/Data_Streaming)
-* [projects\phase0_1\Resilient_AI](file:///C:/Users/vwu/Desktop/notes/projects/phase0_1/Resilient_AI)
-* [projects\phase0_1\Resource_Monitor](file:///C:/Users/vwu/Desktop/notes/projects/phase0_1/Resource_Monitor)
-
+* [AI_Logger](projects/phase0_1/AI_Logger)
+* [Data_Streaming](projects/phase0_1/Data_Streaming)
+* [Resilient_AI](projects/phase0_1/Resilient_AI)
+* [Resource_Monitor](projects/phase0_1/Resource_Monitor)
 ---
