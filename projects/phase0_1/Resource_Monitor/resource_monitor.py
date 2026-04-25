@@ -5,19 +5,27 @@ import time
 from pathlib import Path
 from contextlib import contextmanager
 
-log_file_path = Path("projects/phase0_1/Resource_Monitor") / "resources.log"
-# Gets an instance of logger
-logger = logging.getLogger("Resource Monitor")
-logging.basicConfig(
-    filename=log_file_path,
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s: %(message)s",
-)
+current_dir = Path(__file__).resolve().parent
+
+log_file_path = current_dir / "resources.log"
+
+
+def setup_logger(log_file):
+    logger = logging.getLogger("Resource Monitor")
+    logger.setLevel(logging.INFO)
+    if logger.hasHandlers():
+        logger.handlers.clear()
+    handler = logging.FileHandler(log_file)
+    formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
 
 
 @contextmanager
-def resource_monitor(label):
+def resource_monitor(label, logFile):
     # Gets the process
+    logger = setup_logger(logFile)
     process = psutil.Process(os.getpid())
     # Gets the memory, and time before the script
     memory_before = process.memory_info().rss

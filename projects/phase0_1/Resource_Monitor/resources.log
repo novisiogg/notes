@@ -6,3 +6,5 @@
 2026-04-23 13:22:54,567 - Resource Monitor - INFO: [AI inference] Memory Delta: 0.59MB | Time Elapsed: 1.69s
 2026-04-23 13:22:59,680 - httpx - INFO: HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2026-04-23 13:22:59,680 - Resource Monitor - INFO: [AI inference] Memory Delta: 0.02MB | Time Elapsed: 1.75s
+2026-04-25 07:35:57,115 - Resource Monitor - INFO: [Data Streaming] Memory Delta: 0.11MB | Time Elapsed: 0.00s
+2026-04-25 07:36:21,772 - Resource Monitor - INFO: [Data Streaming] Memory Delta: 0.05MB | Time Elapsed: 0.00s
